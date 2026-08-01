@@ -1,100 +1,1295 @@
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velmoura lab|  - Laboratoire de Beauté </title>
-    <meta name="description" content="Bienvenue dans le futur de l'analyse beauté. Découvrez votre formule personnalisée grâce à notre IA.">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>CHROMALAB · Laboratoire de Beauté</title>
+    <meta name="description" content="Le premier laboratoire virtuel d'analyse beauté personnalisée par IA." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ============================================================
+                   RESET & BASE
+                   ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0b0a0c;
+            --bg-secondary: #121014;
+            --bg-card: #19171c;
+            --bg-card-hover: #211e25;
+            --bg-elevated: #1f1b24;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-glow: rgba(220, 40, 60, 0.25);
+            --text-primary: #f0ece8;
+            --text-secondary: #b0a8a4;
+            --text-muted: #6b6360;
+            --red: #d9253e;
+            --red-glow: #d9253e;
+            --red-dark: #b01e33;
+            --red-soft: rgba(217, 37, 62, 0.12);
+            --gold: #d4a56a;
+            --gold-soft: rgba(212, 165, 106, 0.10);
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.7);
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            background: none;
+            color: inherit;
+        }
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ============================================================
+                   SCROLLBAR
+                   ============================================================ */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--red);
+            border-radius: 10px;
+        }
+
+        /* ============================================================
+                   UTILITY
+                   ============================================================ */
+        .red-text {
+            color: var(--red);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--red), #f06a7a, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            padding: 6px 16px 6px 12px;
+            border-radius: 100px;
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 14px;
+        }
+        .section-label .glow-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: var(--red);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--red-glow);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 520px;
+            margin-top: 10px;
+        }
+        .section-header {
+            margin-bottom: 36px;
+        }
+        .section-header.left {
+            text-align: left;
+        }
+        .section-header.center {
+            text-align: center;
+        }
+        .section-header.center .section-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================================
+                   BUTTONS
+                   ============================================================ */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--red), var(--red-dark));
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 100px;
+            transition: var(--transition);
+            box-shadow: 0 4px 24px rgba(217, 37, 62, 0.30);
+            letter-spacing: 0.01em;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 8px 40px rgba(217, 37, 62, 0.45);
+        }
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+        .btn-primary.btn-large {
+            padding: 18px 40px;
+            font-size: 1rem;
+        }
+        .btn-primary i {
+            font-size: 0.85em;
+            transition: transform 0.3s;
+        }
+        .btn-primary:hover i {
+            transform: translateX(4px);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(4px);
+        }
+        .btn-outline:hover {
+            border-color: var(--red);
+            color: #fff;
+            background: var(--red-soft);
+            transform: translateY(-1px);
+        }
+        .btn-outline i {
+            font-size: 0.9em;
+        }
+
+        /* ============================================================
+                   HEADER / NAVBAR
+                   ============================================================ */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 10, 12, 0.80);
+            backdrop-filter: blur(18px) saturate(1.2);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            padding: 0 20px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+        }
+        .logo .logo-red {
+            color: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            align-items: center;
+        }
+        .nav-links li a {
+            padding: 6px 14px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            border-radius: 100px;
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 2px;
+            background: var(--red);
+            border-radius: 10px;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .nav-actions .btn-primary {
+            padding: 10px 22px;
+            font-size: 0.75rem;
+        }
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+        .theme-toggle:hover {
+            border-color: var(--red);
+            color: #fff;
+        }
+
+        /* Mobile hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 6px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ============================================================
+                   HERO
+                   ============================================================ */
+        .hero {
+            padding: 60px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            padding: 6px 18px 6px 12px;
+            border-radius: 100px;
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 20px;
+        }
+        .hero-badge .glow-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: var(--red);
+            border-radius: 50%;
+            box-shadow: 0 0 14px var(--red-glow);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.6rem, 7vw, 4.4rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 18px;
+        }
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-image {
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            box-shadow: var(--shadow-heavy);
+            border: 1px solid var(--border-subtle);
+        }
+        .floating-cards {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .float-card {
+            position: absolute;
+            background: rgba(25, 23, 28, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            box-shadow: var(--shadow-soft);
+            animation: float 5s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .float-card i {
+            color: var(--red);
+            font-size: 1.1rem;
+        }
+        .float-card:nth-child(1) {
+            top: 6%;
+            left: -6%;
+            animation-delay: 0s;
+        }
+        .float-card:nth-child(2) {
+            bottom: 10%;
+            right: -4%;
+            animation-delay: 1.5s;
+        }
+        .float-card:nth-child(3) {
+            top: 50%;
+            left: -10%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ============================================================
+                   DAILY LAB REPORT
+                   ============================================================ */
+        .daily-lab {
+            padding: 60px 0 70px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .trend-feature {
+            margin-top: 10px;
+        }
+        .trend-card-large {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .trend-card-large:hover {
+            border-color: var(--border-glow);
+        }
+        .trend-image {
+            position: relative;
+            overflow: hidden;
+            min-height: 260px;
+            background: var(--bg-secondary);
+        }
+        .trend-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .trend-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--red);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 100px;
+            letter-spacing: 0.04em;
+        }
+        .trend-content {
+            padding: 28px 30px 30px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .trend-content h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .trend-content>p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .trend-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+        .metric {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+        .metric-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            min-width: 110px;
+        }
+        .meter-bar {
+            flex: 1;
+            min-width: 80px;
+            height: 4px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--red), var(--gold));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+        .metric-value {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            min-width: 50px;
+        }
+        .science-grade {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .science-grade i {
+            color: var(--gold);
+        }
+
+        /* ============================================================
+                   PERIODIC TABLE PREVIEW
+                   ============================================================ */
+        .preview-periodic {
+            padding: 50px 0 60px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .periodic-header {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .periodic-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .element-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 16px 10px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .element-card:hover {
+            border-color: var(--red);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(217, 37, 62, 0.10);
+        }
+        .element-card>span:first-child {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--red);
+            line-height: 1;
+        }
+        .element-card>span:last-child {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* ============================================================
+                   SERVICES SLIDER
+                   ============================================================ */
+        .services-slider-section {
+            padding: 60px 0 70px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .services-slider-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .services-slider {
+            display: flex;
+            gap: 18px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+        .service-slide {
+            flex: 0 0 calc(20% - 14px);
+            min-width: 160px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 28px 16px 22px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .service-slide:hover {
+            border-color: var(--border-glow);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+        }
+        .service-slide i {
+            font-size: 2rem;
+            color: var(--red);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .service-slide h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .service-slide p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 5;
+            backdrop-filter: blur(8px);
+        }
+        .slider-nav:hover {
+            border-color: var(--red);
+            color: #fff;
+            background: var(--red-soft);
+        }
+        .slider-nav.prev {
+            left: -10px;
+        }
+        .slider-nav.next {
+            right: -10px;
+        }
+
+        /* ============================================================
+                   RECENT POSTS
+                   ============================================================ */
+        .recent-posts {
+            padding: 50px 0 60px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 10px;
+        }
+        .post-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 24px 22px;
+            transition: var(--transition);
+        }
+        .post-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+        }
+        .post-card .post-tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--red);
+            background: var(--red-soft);
+            padding: 2px 12px;
+            border-radius: 100px;
+            margin-bottom: 10px;
+        }
+        .post-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .post-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .post-card .post-meta {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .post-card .post-meta i {
+            font-size: 0.7rem;
+        }
+
+        .view-all {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        /* ============================================================
+                   FINAL CTA
+                   ============================================================ */
+        .final-cta {
+            padding: 60px 0 80px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .cta-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 54px 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(217, 37, 62, 0.04), transparent 60%);
+            pointer-events: none;
+        }
+        .cta-card h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .cta-card p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 28px;
+            position: relative;
+        }
+        .cta-card .btn-primary {
+            position: relative;
+        }
+
+        /* ============================================================
+                   FOOTER
+                   ============================================================ */
+        .footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 50px 0 30px;
+            background: var(--bg-secondary);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-brand .logo {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            max-width: 280px;
+            line-height: 1.7;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        .social-links a:hover {
+            border-color: var(--red);
+            color: #fff;
+            background: var(--red-soft);
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .link-group h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+        .link-group a {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 4px 0;
+            transition: var(--transition);
+        }
+        .link-group a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .footer-bottom .sources {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-visual {
+                max-width: 480px;
+                margin: 0 auto;
+            }
+            .float-card:nth-child(1) {
+                top: 2%;
+                left: -2%;
+            }
+            .float-card:nth-child(2) {
+                bottom: 4%;
+                right: -2%;
+            }
+            .float-card:nth-child(3) {
+                display: none;
+            }
+
+            .periodic-header {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .trend-card-large {
+                grid-template-columns: 1fr;
+            }
+            .trend-content {
+                padding: 0 24px 28px;
+            }
+            .trend-image {
+                min-height: 200px;
+            }
+
+            .posts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                height: 64px;
+                padding: 0 16px;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(11, 10, 12, 0.97);
+                backdrop-filter: blur(18px);
+                padding: 20px 16px 30px;
+                border-bottom: 1px solid var(--border-subtle);
+                gap: 2px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links li a {
+                padding: 12px 16px;
+                font-size: 0.8rem;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links li a.active::after {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .nav-actions .btn-primary {
+                padding: 8px 16px;
+                font-size: 0.7rem;
+            }
+            .nav-actions .theme-toggle {
+                width: 36px;
+                height: 36px;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 40px 0 50px;
+            }
+            .hero-title {
+                font-size: clamp(2rem, 8vw, 2.8rem);
+            }
+            .hero-description {
+                font-size: 0.95rem;
+            }
+            .hero-buttons .btn-primary.btn-large {
+                padding: 14px 28px;
+                font-size: 0.85rem;
+            }
+            .hero-image {
+                aspect-ratio: 1/1;
+            }
+            .float-card {
+                display: none;
+            }
+
+            .section-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+            }
+
+            .services-slider {
+                gap: 12px;
+            }
+            .service-slide {
+                flex: 0 0 calc(50% - 6px);
+                min-width: 140px;
+                padding: 20px 12px;
+            }
+            .slider-nav {
+                width: 36px;
+                height: 36px;
+                font-size: 0.8rem;
+            }
+            .slider-nav.prev {
+                left: -4px;
+            }
+            .slider-nav.next {
+                right: -4px;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .post-card {
+                padding: 18px 16px;
+            }
+
+            .cta-card {
+                padding: 32px 20px;
+                border-radius: var(--radius-lg);
+            }
+            .cta-card h2 {
+                font-size: clamp(1.4rem, 5vw, 2rem);
+            }
+            .cta-card p {
+                font-size: 0.9rem;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+            .hero {
+                padding: 24px 0 36px;
+            }
+            .hero-badge {
+                font-size: 0.6rem;
+                padding: 4px 12px 4px 8px;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+            .trend-content h3 {
+                font-size: 1.2rem;
+            }
+            .trend-metrics {
+                gap: 10px;
+            }
+            .metric-label {
+                min-width: 80px;
+                font-size: 0.55rem;
+            }
+            .service-slide {
+                flex: 0 0 calc(100% - 0px);
+                min-width: 0;
+            }
+            .periodic-preview {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .element-card {
+                padding: 12px 6px;
+            }
+            .element-card>span:first-child {
+                font-size: 1.2rem;
+            }
+            .element-card>span:last-child {
+                font-size: 0.55rem;
+            }
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        /* ============================================================
+                   THEME TOGGLE (light mode fallback)
+                   ============================================================ */
+        body.light-mode {
+            --bg-primary: #f5f2ef;
+            --bg-secondary: #ede9e5;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f8f5f2;
+            --bg-elevated: #f0ece8;
+            --border-subtle: rgba(0, 0, 0, 0.06);
+            --border-glow: rgba(217, 37, 62, 0.20);
+            --text-primary: #1a1618;
+            --text-secondary: #4a4442;
+            --text-muted: #8a8280;
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.10);
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode header {
+            background: rgba(245, 242, 239, 0.85);
+            backdrop-filter: blur(18px);
+        }
+        body.light-mode .nav-links {
+            background: rgba(245, 242, 239, 0.97);
+        }
+        body.light-mode .float-card {
+            background: rgba(255, 255, 255, 0.85);
+        }
+        body.light-mode .btn-outline {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        body.light-mode .btn-outline:hover {
+            background: var(--red-soft);
+        }
+        body.light-mode .theme-toggle {
+            background: var(--bg-card);
+        }
+        body.light-mode .section-label {
+            background: var(--bg-card);
+        }
+    </style>
 </head>
 <body>
 
-
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
     <header>
         <div class="navbar">
             <div class="logo">
                 <span class="logo-red">CHROMA</span>LAB
             </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">HOME</a></li>
-                    <li><a href="specimen-lab.html">Specium LAB</a></li>
-                    <li><a href="trend-centrifuge.html">TRENDS</a></li>
-                    <li><a href="formula-archive.html">FORMULA ARCHIVE</a></li>
-                    <li><a href="synthesis-gallery.html">SYNTHESIS</a></li>
-                    <li><a href="field-notes.html">Community</a></li>
-                    <li><a href="equipment-room.html">EQUIPMENT</a></li>
-                </ul>
-            </nav>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="#specimen-lab">Specimen LAB</a></li>
+                <li><a href="#trends">TRENDS</a></li>
+                <li><a href="#formula">FORMULA ARCHIVE</a></li>
+                <li><a href="#synthesis">SYNTHESIS</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#equipment">EQUIPMENT</a></li>
+            </ul>
+
             <div class="nav-actions">
                 <button class="btn-primary" id="startAnalysisBtn">START ANALYSIS →</button>
                 <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
 
-
+    <!-- ============================================================
+    MAIN
+    ============================================================ -->
     <main>
 
-        <!-- SECTION 1: HERO avec CTA -->
+        <!-- ========== HERO ========== -->
         <section class="hero portal-hero">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-badge">
                         <span class="glow-dot"></span>
-                        CHROMA lab -
+                        CHROMA lab — IA &amp; Dermatologie
                     </div>
                     <h1 class="hero-title">
-                        Your Face.<br>
+                        Your Face.<br />
                         <span class="gradient-text">Your Specialty.</span>
                     </h1>
                     <p class="hero-description">
-                        Entrez dans le premier laboratoire virtuel dédié à l'analyse beauté 
+                        Entrez dans le premier laboratoire virtuel dédié à l'analyse beauté
                         personnalisée. IA, science dermatologique et tendances en temps réel.
                     </p>
                     <div class="hero-buttons">
-                        <a href="specimen-lab.html" class="btn-primary btn-large">
+                        <a href="#specimen-lab" class="btn-primary btn-large">
                             START YOUR ANALYSIS <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="trend-centrifuge.html" class="btn-outline">
+                        <a href="#trends" class="btn-outline">
                             <i class="fas fa-chart-line"></i> EXPLORE THE LATEST TRENDS
                         </a>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="floating-cards">
-                        <div class="float-card" style="animation-delay: 0s;">
+                        <div class="float-card" style="animation-delay:0s;">
                             <i class="fas fa-lipstick"></i>
                             <span>AI Analysis</span>
                         </div>
-                        <div class="float-card" style="animation-delay: 1s;">
+                        <div class="float-card" style="animation-delay:1.5s;">
                             <i class="fas fa-flask"></i>
                             <span>Beauty Lab</span>
                         </div>
-                        <div class="float-card" style="animation-delay: 2s;">
+                        <div class="float-card" style="animation-delay:3s;">
                             <i class="fas fa-chart-line"></i>
                             <span>Trend Meter</span>
                         </div>
                     </div>
-                    <img src="C:\Users\hp\Downloads\products.jpg" alt="Beauty lab" class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=800&fit=crop&crop=center&auto=format" alt="Beauty lab" class="hero-image" loading="lazy" />
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: DAILY LAB REPORT (Featured Trend) -->
-        <section class="daily-lab">
+        <!-- ========== DAILY LAB REPORT ========== -->
+        <section class="daily-lab" id="trends">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label">📡 DAILY LAB REPORT</span>
+                <div class="section-header center">
+                    <span class="section-label"><span class="glow-dot"></span> DAILY LAB REPORT</span>
                     <h2 class="section-title">Trend of the Day: <span class="red-text">"Glass Skin 2.0"</span></h2>
                     <p class="section-subtitle">Notre équipe analyse les tendances virales et leur impact réel sur votre peau.</p>
                 </div>
                 <div class="trend-feature">
                     <div class="trend-card-large">
                         <div class="trend-image">
-                            <img src="C:\Users\hp\Downloads\ty.jpg" alt="Glass skin trend">
+                            <img src="https://images.unsplash.com/photo-1571875257724-2562c5f8e9b7?w=800&h=600&fit=crop&crop=center&auto=format" alt="Glass skin trend" loading="lazy" />
                             <div class="trend-badge">VIRAL 🔥</div>
                         </div>
                         <div class="trend-content">
@@ -102,9 +1297,9 @@
                             <p>Avec plus de 50M vues sur TikTok, cette tendance promet une peau "comme du verre". Notre laboratoire a testé 12 routines différentes.</p>
                             <div class="trend-metrics">
                                 <div class="metric">
-                                    <span class="metric-label">TREND DcxECAY METER</span>
+                                    <span class="metric-label">TREND DECAY METER</span>
                                     <div class="meter-bar">
-                                        <div class="meter-fill" style="width: 87%"></div>
+                                        <div class="meter-fill" style="width:87%;"></div>
                                     </div>
                                     <span class="metric-value">87% ACTIVE</span>
                                 </div>
@@ -116,39 +1311,39 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="trend-centrifuge.html" class="btn-outline">READ FULL REPORT →</a>
+                            <a href="#" class="btn-outline">READ FULL REPORT →</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3: PREVIEW PERIODIC TABLE + SERVICES -->
-        <section class="preview-periodic">
+        <!-- ========== PERIODIC TABLE PREVIEW ========== -->
+        <section class="preview-periodic" id="formula">
             <div class="container">
                 <div class="periodic-header">
                     <div class="section-header left">
                         <span class="section-label">⚛️ PERIODIC TABLE</span>
                         <h2 class="section-title">The <span class="red-text">Ingredients</span> Archive</h2>
                         <p>Découvrez la science derrière chaque actif cosmétique.</p>
-                        <a href= class="btn-outline">EXPLORE THE TABLE →</a>
+                        <a href="#" class="btn-outline" style="margin-top:14px;">EXPLORE THE TABLE →</a>
                     </div>
                     <div class="periodic-preview">
-                        <div class="element-card">H<span>Hydration</span></div>
-                        <div class="element-card">C<span>Ceramides</span></div>
-                        <div class="element-card">P<span>Peptides</span></div>
-                        <div class="element-card">R<span>Retinol</span></div>
-                        <div class="element-card">N<span>Niacinamide</span></div>
-                        <div class="element-card">A<span>AHAs</span></div>
+                        <div class="element-card"><span>H</span><span>Hydration</span></div>
+                        <div class="element-card"><span>C</span><span>Ceramides</span></div>
+                        <div class="element-card"><span>P</span><span>Peptides</span></div>
+                        <div class="element-card"><span>R</span><span>Retinol</span></div>
+                        <div class="element-card"><span>N</span><span>Niacinamide</span></div>
+                        <div class="element-card"><span>A</span><span>AHAs</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 4: SLIDER DES SERVICES -->
-        <section class="services-slider-section">
+        <!-- ========== SERVICES SLIDER ========== -->
+        <section class="services-slider-section" id="specimen-lab">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header center">
                     <span class="section-label">🔬 NOS LABORATOIRES</span>
                     <h2 class="section-title">Explorez nos <span class="red-text">7 pôles</span> de recherche</h2>
                 </div>
@@ -191,29 +1386,29 @@
             </div>
         </section>
 
-        <!-- SECTION 5: DERNIERS ARTICLES DU BLOG -->
-        <section class="recent-posts">
+        <!-- ========== RECENT POSTS ========== -->
+        <section class="recent-posts" id="community">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header center">
                     <span class="section-label">📝 DU LABO À VOUS</span>
                     <h2 class="section-title">Latest <span class="red-text">Field Notes</span></h2>
                 </div>
                 <div class="posts-grid" id="recentPosts">
-                    <!-- JS va charger les articles>
+                    <!-- injected by JS -->
                 </div>
                 <div class="view-all">
-                    <a href="field-notes.html" class="btn-outline">VIEW ALL NOTES →</a>
+                    <a href="#" class="btn-outline">VIEW ALL NOTES →</a>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 6: CTA FINAL -->
-        <section class="final-cta">
+        <!-- ========== FINAL CTA ========== -->
+        <section class="final-cta" id="equipment">
             <div class="container">
                 <div class="cta-card">
                     <h2>Ready for your <span class="red-text">Specimen ID</span> ?</h2>
                     <p>Obtenez votre carte d'identité beauté personnalisée en 3 minutes chrono.</p>
-                    <a href="specimen-lab.html" class="btn-primary btn-large">
+                    <a href="#specimen-lab" class="btn-primary btn-large">
                         START YOUR ANALYSIS <i class="fas fa-microscope"></i>
                     </a>
                 </div>
@@ -222,7 +1417,9 @@
 
     </main>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -230,24 +1427,24 @@
                     <div class="logo">CHROMA<span class="logo-red">LAB</span></div>
                     <p>Laboratoire de recherche en beauté et intelligence artificielle.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <div class="link-group">
                         <h4>Explorer</h4>
-                        <a href="specimen-lab.html">Specimen Lab</a>
-                        <a href="trend-centrifuge.html">Trend Centrifuge</a>
-                        <a href="formula-archive.html">Formula Archive</a>
-                        <a href="synthesis-gallery.html">Synthesis Gallery</a>
+                        <a href="#specimen-lab">Specimen Lab</a>
+                        <a href="#trends">Trend Centrifuge</a>
+                        <a href="#formula">Formula Archive</a>
+                        <a href="#synthesis">Synthesis Gallery</a>
                     </div>
                     <div class="link-group">
                         <h4>Ressources</h4>
-                        <a href="field-notes.html">Field Notes</a>
-                        <a href="equipment-room.html">Equipment Room</a>
+                        <a href="#community">Field Notes</a>
+                        <a href="#equipment">Equipment Room</a>
                         <a href="#">Blog Scientifique</a>
                         <a href="#">Études Cliniques</a>
                     </div>
@@ -261,7 +1458,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Chroma Lab - Projet Développement Web - Tous droits réservés</p>
+                <p>&copy; 2025 Chroma Lab — Projet Développement Web — Tous droits réservés</p>
                 <div class="sources">
                     <i class="fas fa-camera"></i> Images: Unsplash, Pexels
                 </div>
@@ -269,6 +1466,177 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ---------- HAMBURGER ----------
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('open');
+                    hamburger.classList.toggle('active');
+                });
+                // close on link click (mobile)
+                navLinks.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('open');
+                        hamburger.classList.remove('active');
+                    });
+                });
+                // close on outside click
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.navbar')) {
+                        navLinks.classList.remove('open');
+                        hamburger.classList.remove('active');
+                    }
+                });
+            }
+
+            // ---------- THEME TOGGLE ----------
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('light-mode');
+                    const icon = themeToggle.querySelector('i');
+                    if (document.body.classList.contains('light-mode')) {
+                        icon.className = 'fas fa-sun';
+                    } else {
+                        icon.className = 'fas fa-moon';
+                    }
+                });
+            }
+
+            // ---------- START ANALYSIS BUTTON ----------
+            const startBtn = document.getElementById('startAnalysisBtn');
+            if (startBtn) {
+                startBtn.addEventListener('click', function() {
+                    document.getElementById('specimen-lab').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // ---------- SERVICES SLIDER ----------
+            const slider = document.getElementById('servicesSlider');
+            const prevBtn = document.getElementById('servicesPrev');
+            const nextBtn = document.getElementById('servicesNext');
+            if (slider && prevBtn && nextBtn) {
+                let currentIndex = 0;
+                const slides = slider.querySelectorAll('.service-slide');
+                const totalSlides = slides.length;
+                let slidesPerView = getSlidesPerView();
+
+                function getSlidesPerView() {
+                    if (window.innerWidth < 480) return 1;
+                    if (window.innerWidth < 768) return 2;
+                    if (window.innerWidth < 1024) return 3;
+                    return 5;
+                }
+
+                function updateSlider() {
+                    const spv = getSlidesPerView();
+                    const maxIndex = Math.max(0, totalSlides - spv);
+                    if (currentIndex > maxIndex) currentIndex = maxIndex;
+                    const gap = 18;
+                    const slideWidth = slides[0]?.offsetWidth || 0;
+                    const offset = -currentIndex * (slideWidth + gap);
+                    slider.style.transform = 'translateX(' + offset + 'px)';
+                }
+
+                function slideNext() {
+                    const spv = getSlidesPerView();
+                    const maxIndex = Math.max(0, totalSlides - spv);
+                    if (currentIndex < maxIndex) {
+                        currentIndex++;
+                        updateSlider();
+                    }
+                }
+
+                function slidePrev() {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateSlider();
+                    }
+                }
+
+                nextBtn.addEventListener('click', slideNext);
+                prevBtn.addEventListener('click', slidePrev);
+
+                let resizeTimeout;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(function() {
+                        const spv = getSlidesPerView();
+                        const maxIndex = Math.max(0, totalSlides - spv);
+                        if (currentIndex > maxIndex) currentIndex = maxIndex;
+                        updateSlider();
+                    }, 150);
+                });
+
+                // initial update after layout
+                requestAnimationFrame(function() {
+                    updateSlider();
+                });
+                // also after fonts/images load
+                window.addEventListener('load', function() {
+                    updateSlider();
+                });
+            }
+
+            // ---------- RECENT POSTS (dynamic) ----------
+            const postsContainer = document.getElementById('recentPosts');
+            if (postsContainer) {
+                const posts = [{
+                    tag: '🧪 Science',
+                    title: 'Le Niacinamide : mythe ou réalité ?',
+                    excerpt: 'Notre équipe a analysé 43 études cliniques pour démêler le vrai du faux sur cet ingrédient star.',
+                    date: '28 juil. 2025',
+                    readTime: '6 min'
+                }, {
+                    tag: '📊 Trend',
+                    title: 'Pourquoi le "Skin Cycling" cartonne',
+                    excerpt: 'Décryptage de la routine qui promet de révolutionner votre façon de prendre soin de votre peau.',
+                    date: '25 juil. 2025',
+                    readTime: '4 min'
+                }, {
+                    tag: '🔬 Lab',
+                    title: 'Notre nouveau protocole anti-âge',
+                    excerpt: 'Après 18 mois de R&D, nous dévoilons notre formule la plus avancée pour lutter contre le vieillissement.',
+                    date: '22 juil. 2025',
+                    readTime: '8 min'
+                }];
+
+                postsContainer.innerHTML = posts.map(function(p) {
+                    return '<div class="post-card">' +
+                        '<span class="post-tag">' + p.tag + '</span>' +
+                        '<h4>' + p.title + '</h4>' +
+                        '<p>' + p.excerpt + '</p>' +
+                        '<div class="post-meta"><i class="far fa-calendar-alt"></i> ' + p.date +
+                        ' &nbsp;·&nbsp; <i class="far fa-clock"></i> ' + p.readTime + '</div>' +
+                        '</div>';
+                }).join('');
+            }
+
+            // ---------- SMOOTH SCROLL for anchor links ----------
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        const offset = 80;
+                        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                    }
+                });
+            });
+
+        })();
+    </script>
 </body>
 </html>

@@ -49,6 +49,179 @@
             --font-serif: 'Playfair Display', Georgia, serif;
         }
 
+        /* Light mode: white, glossy red & black */
+        body.light-mode {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f6f4;
+            --bg-card: #ffffff;
+            --bg-card-hover: #faf8f6;
+            --bg-elevated: #f2efec;
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-glow: rgba(217, 37, 62, 0.30);
+            --text-primary: #1a1412;
+            --text-secondary: #4a423e;
+            --text-muted: #8a7e78;
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.08);
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.04);
+            --red: #c41e34;
+            --red-glow: #c41e34;
+            --red-dark: #a0182a;
+            --red-soft: rgba(196, 30, 52, 0.08);
+        }
+
+        body.light-mode .logo .logo-red {
+            color: var(--red);
+        }
+        body.light-mode .gradient-text {
+            background: linear-gradient(135deg, var(--red), #e0647a, #b8865a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        body.light-mode .btn-primary {
+            background: linear-gradient(135deg, var(--red), var(--red-dark));
+            color: #fff;
+            box-shadow: 0 4px 24px rgba(196, 30, 52, 0.25);
+        }
+        body.light-mode .btn-primary:hover {
+            box-shadow: 0 8px 40px rgba(196, 30, 52, 0.35);
+        }
+        body.light-mode .btn-outline {
+            background: rgba(255, 255, 255, 0.6);
+            border-color: rgba(0, 0, 0, 0.08);
+            color: var(--text-secondary);
+        }
+        body.light-mode .btn-outline:hover {
+            border-color: var(--red);
+            color: var(--text-primary);
+            background: var(--red-soft);
+        }
+        body.light-mode header {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode .nav-links {
+            background: rgba(255, 255, 255, 0.96);
+        }
+        body.light-mode .nav-links li a {
+            color: var(--text-secondary);
+        }
+        body.light-mode .nav-links li a:hover,
+        body.light-mode .nav-links li a.active {
+            color: var(--text-primary);
+            background: rgba(0, 0, 0, 0.03);
+        }
+        body.light-mode .nav-links li a.active::after {
+            background: var(--red);
+        }
+        body.light-mode .theme-toggle {
+            background: var(--bg-card);
+            border-color: rgba(0, 0, 0, 0.06);
+            color: var(--text-secondary);
+        }
+        body.light-mode .theme-toggle:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+        body.light-mode .hero-badge,
+        body.light-mode .section-label {
+            background: var(--bg-card);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode .hero-image {
+            border-color: rgba(0, 0, 0, 0.06);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode .float-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border-color: rgba(0, 0, 0, 0.06);
+            color: var(--text-secondary);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+        }
+        body.light-mode .float-card i {
+            color: var(--red);
+        }
+        body.light-mode .trend-card-large {
+            background: var(--bg-card);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode .trend-card-large:hover {
+            border-color: var(--border-glow);
+        }
+        body.light-mode .element-card {
+            background: var(--bg-card);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode .element-card:hover {
+            border-color: var(--red);
+            box-shadow: 0 8px 30px rgba(196, 30, 52, 0.06);
+        }
+        body.light-mode .element-card>span:first-child {
+            color: var(--red);
+        }
+        body.light-mode .service-slide {
+            background: var(--bg-card);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode .service-slide:hover {
+            border-color: var(--border-glow);
+            background: var(--bg-card-hover);
+        }
+        body.light-mode .service-slide i {
+            color: var(--red);
+        }
+        body.light-mode .slider-nav {
+            background: var(--bg-card);
+            border-color: rgba(0, 0, 0, 0.06);
+            color: var(--text-secondary);
+        }
+        body.light-mode .slider-nav:hover {
+            border-color: var(--red);
+            color: var(--red);
+            background: var(--red-soft);
+        }
+        body.light-mode .post-card {
+            background: var(--bg-card);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode .post-card:hover {
+            border-color: var(--border-glow);
+            background: var(--bg-card-hover);
+        }
+        body.light-mode .post-card .post-tag {
+            color: var(--red);
+            background: var(--red-soft);
+        }
+        body.light-mode .cta-card {
+            background: var(--bg-card);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode .cta-card::before {
+            background: radial-gradient(circle at 30% 20%, rgba(196, 30, 52, 0.04), transparent 60%);
+        }
+        body.light-mode .footer {
+            background: var(--bg-secondary);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode .social-links a {
+            background: var(--bg-card);
+            border-color: rgba(0, 0, 0, 0.06);
+            color: var(--text-secondary);
+        }
+        body.light-mode .social-links a:hover {
+            border-color: var(--red);
+            color: var(--red);
+            background: var(--red-soft);
+        }
+        body.light-mode .footer-bottom {
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+        body.light-mode .hamburger span {
+            background: var(--text-primary);
+        }
+
         html {
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
@@ -61,6 +234,7 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
         }
 
         img {
@@ -127,6 +301,7 @@
             border-radius: 100px;
             border: 1px solid var(--border-subtle);
             margin-bottom: 14px;
+            transition: background 0.3s, border-color 0.3s;
         }
         .section-label .glow-dot {
             display: inline-block;
@@ -247,6 +422,7 @@
             background: rgba(11, 10, 12, 0.80);
             backdrop-filter: blur(18px) saturate(1.2);
             border-bottom: 1px solid var(--border-subtle);
+            transition: background 0.3s, border-color 0.3s;
         }
         .navbar {
             display: flex;
@@ -384,6 +560,7 @@
             border-radius: 100px;
             border: 1px solid var(--border-subtle);
             margin-bottom: 20px;
+            transition: background 0.3s, border-color 0.3s;
         }
         .hero-badge .glow-dot {
             display: inline-block;
@@ -431,6 +608,7 @@
             object-fit: cover;
             box-shadow: var(--shadow-heavy);
             border: 1px solid var(--border-subtle);
+            transition: box-shadow 0.3s, border-color 0.3s;
         }
         .floating-cards {
             position: absolute;
@@ -456,6 +634,7 @@
             box-shadow: var(--shadow-soft);
             animation: float 5s ease-in-out infinite;
             pointer-events: none;
+            transition: background 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
         }
         .float-card i {
             color: var(--red);
@@ -493,6 +672,7 @@
         .daily-lab {
             padding: 60px 0 70px;
             border-top: 1px solid var(--border-subtle);
+            transition: border-color 0.3s;
         }
         .trend-feature {
             margin-top: 10px;
@@ -608,6 +788,7 @@
         .preview-periodic {
             padding: 50px 0 60px;
             border-top: 1px solid var(--border-subtle);
+            transition: border-color 0.3s;
         }
         .periodic-header {
             display: grid;
@@ -658,6 +839,7 @@
         .services-slider-section {
             padding: 60px 0 70px;
             border-top: 1px solid var(--border-subtle);
+            transition: border-color 0.3s;
         }
         .services-slider-container {
             position: relative;
@@ -736,6 +918,7 @@
         .recent-posts {
             padding: 50px 0 60px;
             border-top: 1px solid var(--border-subtle);
+            transition: border-color 0.3s;
         }
         .posts-grid {
             display: grid;
@@ -802,6 +985,7 @@
         .final-cta {
             padding: 60px 0 80px;
             border-top: 1px solid var(--border-subtle);
+            transition: border-color 0.3s;
         }
         .cta-card {
             background: var(--bg-card);
@@ -813,6 +997,7 @@
             margin: 0 auto;
             position: relative;
             overflow: hidden;
+            transition: background 0.3s, border-color 0.3s;
         }
         .cta-card::before {
             content: '';
@@ -848,6 +1033,7 @@
             border-top: 1px solid var(--border-subtle);
             padding: 50px 0 30px;
             background: var(--bg-secondary);
+            transition: background 0.3s, border-color 0.3s;
         }
         .footer-grid {
             display: grid;
@@ -1155,46 +1341,6 @@
                 gap: 16px;
             }
         }
-
-        /* ============================================================
-                   THEME TOGGLE (light mode fallback)
-                   ============================================================ */
-        body.light-mode {
-            --bg-primary: #f5f2ef;
-            --bg-secondary: #ede9e5;
-            --bg-card: #ffffff;
-            --bg-card-hover: #f8f5f2;
-            --bg-elevated: #f0ece8;
-            --border-subtle: rgba(0, 0, 0, 0.06);
-            --border-glow: rgba(217, 37, 62, 0.20);
-            --text-primary: #1a1618;
-            --text-secondary: #4a4442;
-            --text-muted: #8a8280;
-            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.10);
-            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.06);
-        }
-        body.light-mode header {
-            background: rgba(245, 242, 239, 0.85);
-            backdrop-filter: blur(18px);
-        }
-        body.light-mode .nav-links {
-            background: rgba(245, 242, 239, 0.97);
-        }
-        body.light-mode .float-card {
-            background: rgba(255, 255, 255, 0.85);
-        }
-        body.light-mode .btn-outline {
-            background: rgba(255, 255, 255, 0.4);
-        }
-        body.light-mode .btn-outline:hover {
-            background: var(--red-soft);
-        }
-        body.light-mode .theme-toggle {
-            background: var(--bg-card);
-        }
-        body.light-mode .section-label {
-            background: var(--bg-card);
-        }
     </style>
 </head>
 <body>
@@ -1273,7 +1419,8 @@
                             <span>Trend Meter</span>
                         </div>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=800&fit=crop&crop=center&auto=format" alt="Beauty lab" class="hero-image" loading="lazy" />
+                    <!-- Glossy red & black palette image -->
+                    <img src="https://images.unsplash.com/photo-1571875257724-2562c5f8e9b7?w=800&h=800&fit=crop&crop=center&auto=format&q=80" alt="Beauty lab" class="hero-image" loading="lazy" />
                 </div>
             </div>
         </section>
@@ -1289,7 +1436,8 @@
                 <div class="trend-feature">
                     <div class="trend-card-large">
                         <div class="trend-image">
-                            <img src="https://images.unsplash.com/photo-1571875257724-2562c5f8e9b7?w=800&h=600&fit=crop&crop=center&auto=format" alt="Glass skin trend" loading="lazy" />
+                            <!-- Glossy, red/black palette -->
+                            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=800&h=600&fit=crop&crop=center&auto=format&q=80" alt="Glass skin trend" loading="lazy" />
                             <div class="trend-badge">VIRAL 🔥</div>
                         </div>
                         <div class="trend-content">
@@ -1482,14 +1630,12 @@
                     navLinks.classList.toggle('open');
                     hamburger.classList.toggle('active');
                 });
-                // close on link click (mobile)
                 navLinks.querySelectorAll('a').forEach(function(link) {
                     link.addEventListener('click', function() {
                         navLinks.classList.remove('open');
                         hamburger.classList.remove('active');
                     });
                 });
-                // close on outside click
                 document.addEventListener('click', function(e) {
                     if (!e.target.closest('.navbar')) {
                         navLinks.classList.remove('open');
@@ -1577,17 +1723,15 @@
                     }, 150);
                 });
 
-                // initial update after layout
                 requestAnimationFrame(function() {
                     updateSlider();
                 });
-                // also after fonts/images load
                 window.addEventListener('load', function() {
                     updateSlider();
                 });
             }
 
-            // ---------- RECENT POSTS (dynamic) ----------
+            // ---------- RECENT POSTS ----------
             const postsContainer = document.getElementById('recentPosts');
             if (postsContainer) {
                 const posts = [{
@@ -1621,7 +1765,7 @@
                 }).join('');
             }
 
-            // ---------- SMOOTH SCROLL for anchor links ----------
+            // ---------- SMOOTH SCROLL ----------
             document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');

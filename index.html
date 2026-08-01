@@ -10,9 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        /* ============================================================
-                   RESET & BASE
-                   ============================================================ */
         *,
         *::before,
         *::after {
@@ -49,7 +46,6 @@
             --font-serif: 'Playfair Display', Georgia, serif;
         }
 
-        /* Light mode: white, glossy red & black */
         body.light-mode {
             --bg-primary: #ffffff;
             --bg-secondary: #f8f6f4;
@@ -260,9 +256,6 @@
             padding: 0 20px;
         }
 
-        /* ============================================================
-                   SCROLLBAR
-                   ============================================================ */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -274,9 +267,6 @@
             border-radius: 10px;
         }
 
-        /* ============================================================
-                   UTILITY
-                   ============================================================ */
         .red-text {
             color: var(--red);
         }
@@ -351,9 +341,6 @@
             margin-right: auto;
         }
 
-        /* ============================================================
-                   BUTTONS
-                   ============================================================ */
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -412,9 +399,6 @@
             font-size: 0.9em;
         }
 
-        /* ============================================================
-                   HEADER / NAVBAR
-                   ============================================================ */
         header {
             position: sticky;
             top: 0;
@@ -505,7 +489,6 @@
             color: #fff;
         }
 
-        /* Mobile hamburger */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -532,9 +515,6 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        /* ============================================================
-                   HERO
-                   ============================================================ */
         .hero {
             padding: 60px 0 80px;
             position: relative;
@@ -666,9 +646,6 @@
             }
         }
 
-        /* ============================================================
-                   DAILY LAB REPORT
-                   ============================================================ */
         .daily-lab {
             padding: 60px 0 70px;
             border-top: 1px solid var(--border-subtle);
@@ -782,9 +759,6 @@
             color: var(--gold);
         }
 
-        /* ============================================================
-                   PERIODIC TABLE PREVIEW
-                   ============================================================ */
         .preview-periodic {
             padding: 50px 0 60px;
             border-top: 1px solid var(--border-subtle);
@@ -833,9 +807,6 @@
             letter-spacing: 0.02em;
         }
 
-        /* ============================================================
-                   SERVICES SLIDER
-                   ============================================================ */
         .services-slider-section {
             padding: 60px 0 70px;
             border-top: 1px solid var(--border-subtle);
@@ -912,9 +883,6 @@
             right: -10px;
         }
 
-        /* ============================================================
-                   RECENT POSTS
-                   ============================================================ */
         .recent-posts {
             padding: 50px 0 60px;
             border-top: 1px solid var(--border-subtle);
@@ -979,9 +947,6 @@
             margin-top: 32px;
         }
 
-        /* ============================================================
-                   FINAL CTA
-                   ============================================================ */
         .final-cta {
             padding: 60px 0 80px;
             border-top: 1px solid var(--border-subtle);
@@ -1026,9 +991,6 @@
             position: relative;
         }
 
-        /* ============================================================
-                   FOOTER
-                   ============================================================ */
         .footer {
             border-top: 1px solid var(--border-subtle);
             padding: 50px 0 30px;
@@ -1116,9 +1078,6 @@
             gap: 6px;
         }
 
-        /* ============================================================
-                   RESPONSIVE
-                   ============================================================ */
         @media (max-width: 1024px) {
             .hero .container {
                 grid-template-columns: 1fr;
@@ -1146,7 +1105,6 @@
             .float-card:nth-child(3) {
                 display: none;
             }
-
             .periodic-header {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1160,7 +1118,6 @@
             .trend-image {
                 min-height: 200px;
             }
-
             .posts-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1212,7 +1169,6 @@
                 height: 36px;
                 font-size: 0.85rem;
             }
-
             .hero {
                 padding: 40px 0 50px;
             }
@@ -1232,11 +1188,9 @@
             .float-card {
                 display: none;
             }
-
             .section-title {
                 font-size: clamp(1.5rem, 5vw, 2rem);
             }
-
             .services-slider {
                 gap: 12px;
             }
@@ -1256,7 +1210,6 @@
             .slider-nav.next {
                 right: -4px;
             }
-
             .posts-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
@@ -1264,7 +1217,6 @@
             .post-card {
                 padding: 18px 16px;
             }
-
             .cta-card {
                 padding: 32px 20px;
                 border-radius: var(--radius-lg);
@@ -1275,7 +1227,6 @@
             .cta-card p {
                 font-size: 0.9rem;
             }
-
             .footer-links {
                 grid-template-columns: 1fr 1fr;
                 gap: 20px;
@@ -1345,9 +1296,6 @@
 </head>
 <body>
 
-    <!-- ============================================================
-    HEADER
-    ============================================================ -->
     <header>
         <div class="navbar">
             <div class="logo">
@@ -1356,12 +1304,12 @@
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="active">HOME</a></li>
-                <li><a href="#specimen-lab">Specimen LAB</a></li>
-                <li><a href="#trends">TRENDS</a></li>
-                <li><a href="#formula">FORMULA ARCHIVE</a></li>
-                <li><a href="#synthesis">SYNTHESIS</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#equipment">EQUIPMENT</a></li>
+                <li><a href="specimen-lab.html">Specimen LAB</a></li>
+                <li><a href="trend-centrifuge.html">TRENDS</a></li>
+                <li><a href="formula-archive.html">FORMULA ARCHIVE</a></li>
+                <li><a href="synthesis-gallery.html">SYNTHESIS</a></li>
+                <li><a href="field-notes.html">Community</a></li>
+                <li><a href="equipment-room.html">EQUIPMENT</a></li>
             </ul>
 
             <div class="nav-actions">
@@ -1374,12 +1322,8 @@
         </div>
     </header>
 
-    <!-- ============================================================
-    MAIN
-    ============================================================ -->
     <main>
 
-        <!-- ========== HERO ========== -->
         <section class="hero portal-hero">
             <div class="container">
                 <div class="hero-content">
@@ -1396,10 +1340,10 @@
                         personnalisée. IA, science dermatologique et tendances en temps réel.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#specimen-lab" class="btn-primary btn-large">
+                        <a href="specimen-lab.html" class="btn-primary btn-large">
                             START YOUR ANALYSIS <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="#trends" class="btn-outline">
+                        <a href="trend-centrifuge.html" class="btn-outline">
                             <i class="fas fa-chart-line"></i> EXPLORE THE LATEST TRENDS
                         </a>
                     </div>
@@ -1419,13 +1363,11 @@
                             <span>Trend Meter</span>
                         </div>
                     </div>
-                    <!-- Glossy red & black palette image -->
                     <img src="https://images.unsplash.com/photo-1571875257724-2562c5f8e9b7?w=800&h=800&fit=crop&crop=center&auto=format&q=80" alt="Beauty lab" class="hero-image" loading="lazy" />
                 </div>
             </div>
         </section>
 
-        <!-- ========== DAILY LAB REPORT ========== -->
         <section class="daily-lab" id="trends">
             <div class="container">
                 <div class="section-header center">
@@ -1436,7 +1378,6 @@
                 <div class="trend-feature">
                     <div class="trend-card-large">
                         <div class="trend-image">
-                            <!-- Glossy, red/black palette -->
                             <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=800&h=600&fit=crop&crop=center&auto=format&q=80" alt="Glass skin trend" loading="lazy" />
                             <div class="trend-badge">VIRAL 🔥</div>
                         </div>
@@ -1459,14 +1400,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="btn-outline">READ FULL REPORT →</a>
+                            <a href="trend-centrifuge.html" class="btn-outline">READ FULL REPORT →</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== PERIODIC TABLE PREVIEW ========== -->
         <section class="preview-periodic" id="formula">
             <div class="container">
                 <div class="periodic-header">
@@ -1474,7 +1414,7 @@
                         <span class="section-label">⚛️ PERIODIC TABLE</span>
                         <h2 class="section-title">The <span class="red-text">Ingredients</span> Archive</h2>
                         <p>Découvrez la science derrière chaque actif cosmétique.</p>
-                        <a href="#" class="btn-outline" style="margin-top:14px;">EXPLORE THE TABLE →</a>
+                        <a href="formula-archive.html" class="btn-outline" style="margin-top:14px;">EXPLORE THE TABLE →</a>
                     </div>
                     <div class="periodic-preview">
                         <div class="element-card"><span>H</span><span>Hydration</span></div>
@@ -1488,7 +1428,6 @@
             </div>
         </section>
 
-        <!-- ========== SERVICES SLIDER ========== -->
         <section class="services-slider-section" id="specimen-lab">
             <div class="container">
                 <div class="section-header center">
@@ -1497,36 +1436,36 @@
                 </div>
                 <div class="services-slider-container">
                     <div class="services-slider" id="servicesSlider">
-                        <div class="service-slide">
+                        <a href="specimen-lab.html" class="service-slide">
                             <i class="fas fa-microscope"></i>
                             <h3>Specimen Lab</h3>
                             <p>Analyse faciale IA</p>
-                        </div>
-                        <div class="service-slide">
+                        </a>
+                        <a href="trend-centrifuge.html" class="service-slide">
                             <i class="fas fa-chart-line"></i>
                             <h3>Trend Centrifuge</h3>
                             <p>Tendances virales</p>
-                        </div>
-                        <div class="service-slide">
+                        </a>
+                        <a href="formula-archive.html" class="service-slide">
                             <i class="fas fa-atom"></i>
                             <h3>Formula Archive</h3>
                             <p>Ingrédients</p>
-                        </div>
-                        <div class="service-slide">
+                        </a>
+                        <a href="synthesis-gallery.html" class="service-slide">
                             <i class="fas fa-palette"></i>
                             <h3>Synthesis Gallery</h3>
                             <p>Tutoriels</p>
-                        </div>
-                        <div class="service-slide">
+                        </a>
+                        <a href="field-notes.html" class="service-slide">
                             <i class="fas fa-users"></i>
                             <h3>Field Notes</h3>
                             <p>Communauté</p>
-                        </div>
-                        <div class="service-slide">
+                        </a>
+                        <a href="equipment-room.html" class="service-slide">
                             <i class="fas fa-shopping-cart"></i>
                             <h3>Equipment Room</h3>
                             <p>Produits</p>
-                        </div>
+                        </a>
                     </div>
                     <button class="slider-nav prev" id="servicesPrev"><i class="fas fa-chevron-left"></i></button>
                     <button class="slider-nav next" id="servicesNext"><i class="fas fa-chevron-right"></i></button>
@@ -1534,29 +1473,25 @@
             </div>
         </section>
 
-        <!-- ========== RECENT POSTS ========== -->
         <section class="recent-posts" id="community">
             <div class="container">
                 <div class="section-header center">
                     <span class="section-label">📝 DU LABO À VOUS</span>
                     <h2 class="section-title">Latest <span class="red-text">Field Notes</span></h2>
                 </div>
-                <div class="posts-grid" id="recentPosts">
-                    <!-- injected by JS -->
-                </div>
+                <div class="posts-grid" id="recentPosts"></div>
                 <div class="view-all">
-                    <a href="#" class="btn-outline">VIEW ALL NOTES →</a>
+                    <a href="field-notes.html" class="btn-outline">VIEW ALL NOTES →</a>
                 </div>
             </div>
         </section>
 
-        <!-- ========== FINAL CTA ========== -->
         <section class="final-cta" id="equipment">
             <div class="container">
                 <div class="cta-card">
                     <h2>Ready for your <span class="red-text">Specimen ID</span> ?</h2>
                     <p>Obtenez votre carte d'identité beauté personnalisée en 3 minutes chrono.</p>
-                    <a href="#specimen-lab" class="btn-primary btn-large">
+                    <a href="specimen-lab.html" class="btn-primary btn-large">
                         START YOUR ANALYSIS <i class="fas fa-microscope"></i>
                     </a>
                 </div>
@@ -1565,9 +1500,6 @@
 
     </main>
 
-    <!-- ============================================================
-    FOOTER
-    ============================================================ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -1584,15 +1516,15 @@
                 <div class="footer-links">
                     <div class="link-group">
                         <h4>Explorer</h4>
-                        <a href="#specimen-lab">Specimen Lab</a>
-                        <a href="#trends">Trend Centrifuge</a>
-                        <a href="#formula">Formula Archive</a>
-                        <a href="#synthesis">Synthesis Gallery</a>
+                        <a href="specimen-lab.html">Specimen Lab</a>
+                        <a href="trend-centrifuge.html">Trend Centrifuge</a>
+                        <a href="formula-archive.html">Formula Archive</a>
+                        <a href="synthesis-gallery.html">Synthesis Gallery</a>
                     </div>
                     <div class="link-group">
                         <h4>Ressources</h4>
-                        <a href="#community">Field Notes</a>
-                        <a href="#equipment">Equipment Room</a>
+                        <a href="field-notes.html">Field Notes</a>
+                        <a href="equipment-room.html">Equipment Room</a>
                         <a href="#">Blog Scientifique</a>
                         <a href="#">Études Cliniques</a>
                     </div>
@@ -1614,14 +1546,10 @@
         </div>
     </footer>
 
-    <!-- ============================================================
-    JAVASCRIPT
-    ============================================================ -->
     <script>
         (function() {
             'use strict';
 
-            // ---------- HAMBURGER ----------
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
             if (hamburger && navLinks) {
@@ -1644,7 +1572,6 @@
                 });
             }
 
-            // ---------- THEME TOGGLE ----------
             const themeToggle = document.getElementById('themeToggle');
             if (themeToggle) {
                 themeToggle.addEventListener('click', function() {
@@ -1658,15 +1585,13 @@
                 });
             }
 
-            // ---------- START ANALYSIS BUTTON ----------
             const startBtn = document.getElementById('startAnalysisBtn');
             if (startBtn) {
                 startBtn.addEventListener('click', function() {
-                    document.getElementById('specimen-lab').scrollIntoView({ behavior: 'smooth' });
+                    window.location.href = 'specimen-lab.html';
                 });
             }
 
-            // ---------- SERVICES SLIDER ----------
             const slider = document.getElementById('servicesSlider');
             const prevBtn = document.getElementById('servicesPrev');
             const nextBtn = document.getElementById('servicesNext');
@@ -1731,7 +1656,6 @@
                 });
             }
 
-            // ---------- RECENT POSTS ----------
             const postsContainer = document.getElementById('recentPosts');
             if (postsContainer) {
                 const posts = [{
@@ -1765,7 +1689,6 @@
                 }).join('');
             }
 
-            // ---------- SMOOTH SCROLL ----------
             document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');

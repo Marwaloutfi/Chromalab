@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chroma Lab | Equipment Room - Produits</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span class="logo-red">CHROMA</span>LAB
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="specimen-lab.html">SPECIMEN LAB</a></li>
+                    <li><a href="trend-centrifuge.html">TRENDS</a></li>
+                    <li><a href="formula-archive.html">FORMULA ARCHIVE</a></li>
+                    <li><a href="synthesis-gallery.html">SYNTHESIS</a></li>
+                    <li><a href="field-notes.html">FIELD NOTES</a></li>
+                    <li><a href="equipment-room.html" class="active">EQUIPMENT</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Equipment Room -->
+        <section class="equipment-hero">
+            <div class="container">
+                <h1>Equipment <span class="red-text">Room</span></h1>
+                <p>Produits recommandés par notre laboratoire</p>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section class="product-filters">
+            <div class="container">
+                <div class="filter-group">
+                    <label>🔬 Par Chemical Compound :</label>
+                    <div class="filter-buttons" id="ingredientFilters">
+                        <button class="filter-pill active" data-ingredient="all">Tous</button>
+                        <button class="filter-pill" data-ingredient="niacinamide">Niacinamide</button>
+                        <button class="filter-pill" data-ingredient="retinol">Retinol</button>
+                        <button class="filter-pill" data-ingredient="vitaminc">Vitamine C</button>
+                        <button class="filter-pill" data-ingredient="hyaluronic">Acide Hyaluronique</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>🧬 Par Anatomical Fit :</label>
+                    <div class="filter-buttons" id="shapeFilters">
+                        <button class="filter-pill active" data-shape="all">Toutes</button>
+                        <button class="filter-pill" data-shape="oval">Ovale</button>
+                        <button class="filter-pill" data-shape="round">Rond</button>
+                        <button class="filter-pill" data-shape="square">Carré</button>
+                        <button class="filter-pill" data-shape="heart">Cœur</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-gallery">
+            <div class="container">
+                <div class="products-grid" id="productsGrid">
+                    <!-- JS va générer les produits -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Comparison Tool -->
+        <section class="comparison-tool">
+            <div class="container">
+                <div class="comparison-card">
+                    <h3><i class="fas fa-chart-simple"></i> Comparateur de produits</h3>
+                    <p>Sélectionnez jusqu'à 3 produits pour comparer leurs compositions et leur compatibilité avec votre morphologie.</p>
+                    <div class="comparison-selectors">
+                        <select id="compare1">
+                            <option value="">Choisir un produit...</option>
+                        </select>
+                        <select id="compare2">
+                            <option value="">Choisir un produit...</option>
+                        </select>
+                        <select id="compare3">
+                            <option value="">Choisir un produit...</option>
+                        </select>
+                        <button class="btn-primary" id="compareBtn">Comparer →</button>
+                    </div>
+                    <div class="comparison-results" id="comparisonResults"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources -->
+        <section class="sources-section">
+            <div class="container">
+                <blockquote cite="https://www.incidecoder.com/">
+                    Les analyses d'ingrédients sont basées sur les données de l'INCI et les études dermatologiques.
+                </blockquote>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">CHROMA<span class="logo-red">LAB</span></div>
+                    <p>Recommandations produit certifiées.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Shopping</h4>
+                        <a href="equipment-room.html">Equipment Room</a>
+                        <a href="#">Guide d'achat</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chroma Lab - Projet Développement Web</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

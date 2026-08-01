@@ -1,0 +1,274 @@
+`<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velmoura lab|  - Laboratoire de Beauté </title>
+    <meta name="description" content="Bienvenue dans le futur de l'analyse beauté. Découvrez votre formule personnalisée grâce à notre IA.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span class="logo-red">CHROMA</span>LAB
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">HOME</a></li>
+                    <li><a href="specimen-lab.html">Specium LAB</a></li>
+                    <li><a href="trend-centrifuge.html">TRENDS</a></li>
+                    <li><a href="formula-archive.html">FORMULA ARCHIVE</a></li>
+                    <li><a href="synthesis-gallery.html">SYNTHESIS</a></li>
+                    <li><a href="field-notes.html">Community</a></li>
+                    <li><a href="equipment-room.html">EQUIPMENT</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn-primary" id="startAnalysisBtn">START ANALYSIS →</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- SECTION 1: HERO avec CTA -->
+        <section class="hero portal-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="glow-dot"></span>
+                        CHROMA lab -
+                    </div>
+                    <h1 class="hero-title">
+                        Your Face.<br>
+                        <span class="gradient-text">Your Specialty.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Entrez dans le premier laboratoire virtuel dédié à l'analyse beauté 
+                        personnalisée. IA, science dermatologique et tendances en temps réel.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="specimen-lab.html" class="btn-primary btn-large">
+                            START YOUR ANALYSIS <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="trend-centrifuge.html" class="btn-outline">
+                            <i class="fas fa-chart-line"></i> EXPLORE THE LATEST TRENDS
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-cards">
+                        <div class="float-card" style="animation-delay: 0s;">
+                            <i class="fas fa-lipstick"></i>
+                            <span>AI Analysis</span>
+                        </div>
+                        <div class="float-card" style="animation-delay: 1s;">
+                            <i class="fas fa-flask"></i>
+                            <span>Beauty Lab</span>
+                        </div>
+                        <div class="float-card" style="animation-delay: 2s;">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Trend Meter</span>
+                        </div>
+                    </div>
+                    <img src="C:\Users\hp\Downloads\products.jpg" alt="Beauty lab" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: DAILY LAB REPORT (Featured Trend) -->
+        <section class="daily-lab">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">📡 DAILY LAB REPORT</span>
+                    <h2 class="section-title">Trend of the Day: <span class="red-text">"Glass Skin 2.0"</span></h2>
+                    <p class="section-subtitle">Notre équipe analyse les tendances virales et leur impact réel sur votre peau.</p>
+                </div>
+                <div class="trend-feature">
+                    <div class="trend-card-large">
+                        <div class="trend-image">
+                            <img src="C:\Users\hp\Downloads\ty.jpg" alt="Glass skin trend">
+                            <div class="trend-badge">VIRAL 🔥</div>
+                        </div>
+                        <div class="trend-content">
+                            <h3>Glass Skin 2.0 : Le retour du glow</h3>
+                            <p>Avec plus de 50M vues sur TikTok, cette tendance promet une peau "comme du verre". Notre laboratoire a testé 12 routines différentes.</p>
+                            <div class="trend-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">TREND DcxECAY METER</span>
+                                    <div class="meter-bar">
+                                        <div class="meter-fill" style="width: 87%"></div>
+                                    </div>
+                                    <span class="metric-value">87% ACTIVE</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">SCIENCE GRADE</span>
+                                    <div class="science-grade">
+                                        <i class="fas fa-flask"></i>
+                                        <span>Grade A- (Recommandé)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="trend-centrifuge.html" class="btn-outline">READ FULL REPORT →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: PREVIEW PERIODIC TABLE + SERVICES -->
+        <section class="preview-periodic">
+            <div class="container">
+                <div class="periodic-header">
+                    <div class="section-header left">
+                        <span class="section-label">⚛️ PERIODIC TABLE</span>
+                        <h2 class="section-title">The <span class="red-text">Ingredients</span> Archive</h2>
+                        <p>Découvrez la science derrière chaque actif cosmétique.</p>
+                        <a href= class="btn-outline">EXPLORE THE TABLE →</a>
+                    </div>
+                    <div class="periodic-preview">
+                        <div class="element-card">H<span>Hydration</span></div>
+                        <div class="element-card">C<span>Ceramides</span></div>
+                        <div class="element-card">P<span>Peptides</span></div>
+                        <div class="element-card">R<span>Retinol</span></div>
+                        <div class="element-card">N<span>Niacinamide</span></div>
+                        <div class="element-card">A<span>AHAs</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SLIDER DES SERVICES -->
+        <section class="services-slider-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">🔬 NOS LABORATOIRES</span>
+                    <h2 class="section-title">Explorez nos <span class="red-text">7 pôles</span> de recherche</h2>
+                </div>
+                <div class="services-slider-container">
+                    <div class="services-slider" id="servicesSlider">
+                        <div class="service-slide">
+                            <i class="fas fa-microscope"></i>
+                            <h3>Specimen Lab</h3>
+                            <p>Analyse faciale IA</p>
+                        </div>
+                        <div class="service-slide">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Trend Centrifuge</h3>
+                            <p>Tendances virales</p>
+                        </div>
+                        <div class="service-slide">
+                            <i class="fas fa-atom"></i>
+                            <h3>Formula Archive</h3>
+                            <p>Ingrédients</p>
+                        </div>
+                        <div class="service-slide">
+                            <i class="fas fa-palette"></i>
+                            <h3>Synthesis Gallery</h3>
+                            <p>Tutoriels</p>
+                        </div>
+                        <div class="service-slide">
+                            <i class="fas fa-users"></i>
+                            <h3>Field Notes</h3>
+                            <p>Communauté</p>
+                        </div>
+                        <div class="service-slide">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3>Equipment Room</h3>
+                            <p>Produits</p>
+                        </div>
+                    </div>
+                    <button class="slider-nav prev" id="servicesPrev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-nav next" id="servicesNext"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: DERNIERS ARTICLES DU BLOG -->
+        <section class="recent-posts">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">📝 DU LABO À VOUS</span>
+                    <h2 class="section-title">Latest <span class="red-text">Field Notes</span></h2>
+                </div>
+                <div class="posts-grid" id="recentPosts">
+                    <!-- JS va charger les articles>
+                </div>
+                <div class="view-all">
+                    <a href="field-notes.html" class="btn-outline">VIEW ALL NOTES →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: CTA FINAL -->
+        <section class="final-cta">
+            <div class="container">
+                <div class="cta-card">
+                    <h2>Ready for your <span class="red-text">Specimen ID</span> ?</h2>
+                    <p>Obtenez votre carte d'identité beauté personnalisée en 3 minutes chrono.</p>
+                    <a href="specimen-lab.html" class="btn-primary btn-large">
+                        START YOUR ANALYSIS <i class="fas fa-microscope"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">CHROMA<span class="logo-red">LAB</span></div>
+                    <p>Laboratoire de recherche en beauté et intelligence artificielle.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Explorer</h4>
+                        <a href="specimen-lab.html">Specimen Lab</a>
+                        <a href="trend-centrifuge.html">Trend Centrifuge</a>
+                        <a href="formula-archive.html">Formula Archive</a>
+                        <a href="synthesis-gallery.html">Synthesis Gallery</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Ressources</h4>
+                        <a href="field-notes.html">Field Notes</a>
+                        <a href="equipment-room.html">Equipment Room</a>
+                        <a href="#">Blog Scientifique</a>
+                        <a href="#">Études Cliniques</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Légal</h4>
+                        <a href="#">Mentions Légales</a>
+                        <a href="#">Confidentialité</a>
+                        <a href="#">CGU</a>
+                        <a href="#">Crédits</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chroma Lab - Projet Développement Web - Tous droits réservés</p>
+                <div class="sources">
+                    <i class="fas fa-camera"></i> Images: Unsplash, Pexels
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

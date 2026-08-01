@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chroma Lab | Specimen Lab - Analyse IA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span class="logo-red">CHROMA</span>LAB
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="specimen-lab.html" class="active">SPECIMEN LAB</a></li>
+                    <li><a href="trend-centrifuge.html">TRENDS</a></li>
+                    <li><a href="formula-archive.html">FORMULA ARCHIVE</a></li>
+                    <li><a href="synthesis-gallery.html">SYNTHESIS</a></li>
+                    <li><a href="field-notes.html">FIELD NOTES</a></li>
+                    <li><a href="equipment-room.html">EQUIPMENT</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Specimen Lab -->
+        <section class="specimen-hero">
+            <div class="container">
+                <h1>Specimen <span class="red-text">Lab</span></h1>
+                <p>Analyse faciale avancée par intelligence artificielle</p>
+                <div class="progress-steps" id="quizSteps">
+                    <div class="step active" data-step="1">1. Face Shape</div>
+                    <div class="step" data-step="2">2. Undertone</div>
+                    <div class="step" data-step="3">3. Contrast</div>
+                    <div class="step" data-step="4">4. Results</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Quiz -->
+        <section class="quiz-container">
+            <div class="container">
+                <div class="quiz-card" id="quizCard">
+                    <!-- Step 1: Face Shape -->
+                    <div class="quiz-step active" id="step1">
+                        <h3><i class="fas fa-shapes"></i> Déterminez votre morphologie faciale</h3>
+                        <p>Choisissez la forme qui correspond le plus à votre visage :</p>
+                        <div class="face-shapes-grid">
+                            <div class="shape-option" data-shape="oval">
+                                <i class="fas fa-circle"></i>
+                                <span>Ovale</span>
+                            </div>
+                            <div class="shape-option" data-shape="round">
+                                <i class="fas fa-circle-notch"></i>
+                                <span>Rond</span>
+                            </div>
+                            <div class="shape-option" data-shape="square">
+                                <i class="fas fa-square"></i>
+                                <span>Carré</span>
+                            </div>
+                            <div class="shape-option" data-shape="heart">
+                                <i class="fas fa-heart"></i>
+                                <span>Cœur</span>
+                            </div>
+                            <div class="shape-option" data-shape="diamond">
+                                <i class="fas fa-gem"></i>
+                                <span>Diamant</span>
+                            </div>
+                            <div class="shape-option" data-shape="rectangle">
+                                <i class="fas fa-rectangle-ad"></i>
+                                <span>Rectangle</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary next-step" disabled id="nextStep1">Suivant →</button>
+                    </div>
+
+                    <!-- Step 2: Undertone -->
+                    <div class="quiz-step" id="step2">
+                        <h3><i class="fas fa-droplet"></i> Identifiez votre sous-ton</h3>
+                        <p>Regardez vos veines au poignet : de quelle couleur sont-elles ?</p>
+                        <div class="undertone-options">
+                            <div class="undertone-option" data-undertone="cool">
+                                <div class="color-swatch cool"></div>
+                                <span>Froid (veines bleues/violettes)</span>
+                            </div>
+                            <div class="undertone-option" data-undertone="warm">
+                                <div class="color-swatch warm"></div>
+                                <span>Chaud (veines vertes)</span>
+                            </div>
+                            <div class="undertone-option" data-undertone="neutral">
+                                <div class="color-swatch neutral"></div>
+                                <span>Neutre (mélange)</span>
+                            </div>
+                        </div>
+                        <div class="quiz-nav">
+                            <button class="btn-outline prev-step">← Retour</button>
+                            <button class="btn-primary next-step" disabled id="nextStep2">Suivant →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Contrast Level -->
+                    <div class="quiz-step" id="step3">
+                        <h3><i class="fas fa-chart-line"></i> Niveau de contraste</h3>
+                        <p>Comparez la couleur de vos cheveux, yeux et peau :</p>
+                        <div class="contrast-options">
+                            <div class="contrast-option" data-contrast="low">
+                                <i class="fas fa-sun"></i>
+                                <span>Faible contraste</span>
+                                <small>Couleurs proches</small>
+                            </div>
+                            <div class="contrast-option" data-contrast="medium">
+                                <i class="fas fa-chart-simple"></i>
+                                <span>Contraste moyen</span>
+                                <small>Différences modérées</small>
+                            </div>
+                            <div class="contrast-option" data-contrast="high">
+                                <i class="fas fa-moon"></i>
+                                <span>Fort contraste</span>
+                                <small>Cheveux clairs/yeux foncés</small>
+                            </div>
+                        </div>
+                        <div class="quiz-nav">
+                            <button class="btn-outline prev-step">← Retour</button>
+                            <button class="btn-primary next-step" disabled id="nextStep3">Voir mes résultats →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Results - Identity Card -->
+                    <div class="quiz-step" id="step4">
+                        <h3><i class="fas fa-id-card"></i> Votre Specimen ID Card</h3>
+                        <div class="identity-card" id="identityCard">
+                            <div class="card-header">
+                                <span>CHROMA LAB</span>
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-section">
+                                    <label>Face Architecture</label>
+                                    <p id="resultShape">—</p>
+                                </div>
+                                <div class="card-section">
+                                    <label>Undertone Profile</label>
+                                    <p id="resultUndertone">—</p>
+                                </div>
+                                <div class="card-section">
+                                    <label>Contrast Level</label>
+                                    <p id="resultContrast">—</p>
+                                </div>
+                                <div class="card-section">
+                                    <label>Recommended Styles</label>
+                                    <p id="resultStyles">—</p>
+                                </div>
+                                <div class="card-section">
+                                    <label>Lipstick Formula</label>
+                                    <p id="resultLipstick">—</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <i class="fas fa-qrcode"></i>
+                                <span>ID: CHR-2030-4242</span>
+                            </div>
+                        </div>
+                        <div class="quiz-actions">
+                            <button class="btn-outline" id="resetQuiz">Recommencer l'analyse</button>
+                            <button class="btn-primary" id="saveResults"><i class="fas fa-download"></i> Sauvegarder mon ID</button>
+                        </div>
+                        <a href="equipment-room.html" class="btn-outline shop-link">
+                            <i class="fas fa-shopping-cart"></i> Voir les produits recommandés
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Citation & Sources -->
+        <section class="sources-section">
+            <div class="container">
+                <blockquote cite="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8481627/">
+                    "L'analyse morphologique faciale et la classification des sous-tons sont basées sur des études dermatologiques publiées dans le Journal of Cosmetic Science."
+                </blockquote>
+                <div class="source-credit">
+                    <i class="fas fa-book-open"></i> Source : International Journal of Cosmetic Dermatology (2024)
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">CHROMA<span class="logo-red">LAB</span></div>
+                    <p>Laboratoire de recherche en beauté.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Liens</h4>
+                        <a href="index.html">Accueil</a>
+                        <a href="specimen-lab.html">Specimen Lab</a>
+                        <a href="field-notes.html">Field Notes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chroma Lab - Projet Développement Web</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

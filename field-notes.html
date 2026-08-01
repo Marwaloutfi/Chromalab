@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chroma Lab | Field Notes - Blog Communauté</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span class="logo-red">CHROMA</span>LAB
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="specimen-lab.html">SPECIMEN LAB</a></li>
+                    <li><a href="trend-centrifuge.html">TRENDS</a></li>
+                    <li><a href="formula-archive.html">FORMULA ARCHIVE</a></li>
+                    <li><a href="synthesis-gallery.html">SYNTHESIS</a></li>
+                    <li><a href="field-notes.html" class="active">FIELD NOTES</a></li>
+                    <li><a href="equipment-room.html">EQUIPMENT</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Field Notes -->
+        <section class="field-hero">
+            <div class="container">
+                <h1>Field <span class="red-text">Notes</span></h1>
+                <p>La communauté Chroma Lab partage ses expériences</p>
+                <button class="btn-primary" id="submitNoteBtn">
+                    <i class="fas fa-pen-fancy"></i> Partager mon expérience
+                </button>
+            </div>
+        </section>
+
+        <!-- Blog Grid -->
+        <section class="field-notes-grid">
+            <div class="container">
+                <div class="blog-header">
+                    <div class="categories">
+                        <button class="blog-cat-btn active" data-cat="all">Tous</button>
+                        <button class="blog-cat-btn" data-cat="reviews">Reviews</button>
+                        <button class="blog-cat-btn" data-cat="before-after">Before/After</button>
+                        <button class="blog-cat-btn" data-cat="routines">Routines</button>
+                    </div>
+                    <div class="blog-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="blogSearch" placeholder="Rechercher dans les notes...">
+                    </div>
+                </div>
+                <div class="posts-grid" id="fieldNotesGrid">
+                    <!-- JS va générer les posts du blog -->
+                </div>
+                <div class="load-more">
+                    <button class="btn-outline" id="loadMoreNotes">Charger plus de notes →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Community Member -->
+        <section class="community-spotlight">
+            <div class="container">
+                <div class="spotlight-card">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Membre">
+                    <div class="spotlight-content">
+                        <span class="spotlight-badge">🌟 MEMBRE DU MOIS</span>
+                        <h3>Laura M. a transformé sa routine grâce au Specimen Lab</h3>
+                        <p>"J'ai toujours eu du mal à trouver les bonnes couleurs. L'analyse Chroma Lab m'a donné une feuille de route parfaite. Mes amies me demandent mon secret !"</p>
+                        <a href="#" class="read-more">Lire son témoignage →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources -->
+        <section class="sources-section">
+            <div class="container">
+                <blockquote cite="https://www.chromalab.com/community">
+                    Témoignages et photos soumis par notre communauté de testeurs certifiés Chroma Lab.
+                </blockquote>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">CHROMA<span class="logo-red">LAB</span></div>
+                    <p>La communauté au cœur de la recherche.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Communauté</h4>
+                        <a href="field-notes.html">Field Notes</a>
+                        <a href="#">Devenir testeur</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chroma Lab - Projet Développement Web</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

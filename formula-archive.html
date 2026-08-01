@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chroma Lab | Formula Archive - Tableau Périodique</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span class="logo-red">CHROMA</span>LAB
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="specimen-lab.html">SPECIMEN LAB</a></li>
+                    <li><a href="trend-centrifuge.html">TRENDS</a></li>
+                    <li><a href="formula-archive.html" class="active">FORMULA ARCHIVE</a></li>
+                    <li><a href="synthesis-gallery.html">SYNTHESIS</a></li>
+                    <li><a href="field-notes.html">FIELD NOTES</a></li>
+                    <li><a href="equipment-room.html">EQUIPMENT</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Formula Archive -->
+        <section class="archive-hero">
+            <div class="container">
+                <h1>Formula <span class="red-text">Archive</span></h1>
+                <p>Le tableau périodique des ingrédients cosmétiques</p>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="ingredientSearch" placeholder="Rechercher un ingrédient... (ex: Niacinamide, Retinol, Vitamine C)">
+                </div>
+            </div>
+        </section>
+
+        <!-- Periodic Table des Ingrédients -->
+        <section class="periodic-table-section">
+            <div class="container">
+                <div class="periodic-categories">
+                    <div class="category active" data-cat="all">Tous</div>
+                    <div class="category" data-cat="hydratants">Hydratants</div>
+                    <div class="category" data-cat="actifs">Actifs</div>
+                    <div class="category" data-cat="antioxydants">Antioxydants</div>
+                    <div class="category" data-cat="exfoliants">Exfoliants</div>
+                </div>
+                <div class="periodic-grid" id="periodicGrid">
+                    <!-- JS va générer le tableau périodique -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles sur la peau / pH / Climats -->
+        <section class="skin-articles">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">📚 SKIN THEORY LIBRARY</span>
+                    <h2 class="section-title">Comprendre <span class="red-text">votre peau</span></h2>
+                </div>
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Le pH Cutané</h3>
+                        <p>Pourquoi le pH de votre peau influence l'efficacité de vos produits.</p>
+                        <a href="#" class="read-more">Lire l'article →</a>
+                    </div>
+                    <div class="article-card">
+                        <i class="fas fa-cloud-sun"></i>
+                        <h3>Climat & Makeup</h3>
+                        <p>Comment la température et l'humidité affectent votre maquillage.</p>
+                        <a href="#" class="read-more">Lire l'article →</a>
+                    </div>
+                    <div class="article-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>La Barrière Cutanée</h3>
+                        <p>Protégez et réparez votre barrière cutanée avec les bons ingrédients.</p>
+                        <a href="#" class="read-more">Lire l'article →</a>
+                    </div>
+                    <div class="article-card">
+                        <i class="fas fa-dna"></i>
+                        <h3>Peptides & Collagène</h3>
+                        <p>La science derrière le rajeunissement cutané.</p>
+                        <a href="#" class="read-more">Lire l'article →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources scientifiques -->
+        <section class="sources-section">
+            <div class="container">
+                <blockquote cite="https://pubmed.ncbi.nlm.nih.gov/">
+                    Les informations sur les ingrédients sont basées sur des publications scientifiques indexées dans PubMed et la Cochrane Library.
+                </blockquote>
+                <div class="sources-list">
+                    <p>Sources : Journal of Investigative Dermatology (2024), International Journal of Cosmetic Science (2023), British Journal of Dermatology (2024)</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">CHROMA<span class="logo-red">LAB</span></div>
+                    <p>Archives scientifiques des ingrédients cosmétiques.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Recherche</h4>
+                        <a href="formula-archive.html">Formula Archive</a>
+                        <a href="#">Bibliographie</a>
+                        <a href="#">Études Cliniques</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chroma Lab - Projet Développement Web</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
